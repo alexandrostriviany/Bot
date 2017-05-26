@@ -1,9 +1,10 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import eventlet as eventlet
-
+from flask import Flask, request
 from Bot import Movie_finder
-from Bot.excuses import first, second, third, fourth, smiles, funny_categories
+from Bot.excuses import smiles
 from Bot import constants
 import telebot
 import time  # Представляет время в читаемый формат
@@ -11,6 +12,8 @@ from Bot import Bar_finder
 from Bot import Otmazka_creator, Boyan_checker
 from datetime import datetime
 import eventlet
+
+server = Flask(__name__)
 
 bot = telebot.TeleBot(constants.token)
 print(bot.get_me())
@@ -79,4 +82,28 @@ def send_boyan(message):
     Boyan_checker.send_boyan(message, bot)
 
 
-bot.polling(none_stop=True)
+# Получение сообщений
+@server.route("/", methods=['POST'])
+def get_message():
+    # Чтение данных от серверов telegram
+    bot.process_new_messages(
+        [telebot.types.Update.de_json(request.stream.read().decode("utf-8")).message
+         ])
+    return "!", 200
+
+
+# Установка webhook
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    # Если вы будете использовать хостинг или сервис без https
+    # то вам необходимо создать сертификат и
+    # добавить параметр certificate=open('ваш сертификат.pem')
+    bot.set_webhook(url=constants.webhook)
+    return "App is OK!", 200
+
+
+# Запуск сервера
+server.run(host="0.0.0.0", port=os.environ.get('PORT', 5000))
+
+# bot.polling(none_stop=True)
