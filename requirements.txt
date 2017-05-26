@@ -3,3 +3,4 @@ dj_database_url
 pyTelegramBotAPI
 requests
 flask
+eventlet
