@@ -3,13 +3,13 @@
 import os
 import eventlet as eventlet
 from flask import Flask, request
-from Bot import Movie_finder
-from Bot.excuses import smiles
-from Bot import constants
+import Movie_finder
+from excuses import smiles
+import constants
 import telebot
 import time  # Представляет время в читаемый формат
-from Bot import Bar_finder
-from Bot import Otmazka_creator, Boyan_checker
+import Bar_finder
+import Otmazka_creator, Boyan_checker
 from datetime import datetime
 import eventlet
 
