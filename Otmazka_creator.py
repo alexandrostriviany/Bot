@@ -2,8 +2,8 @@ import random
 import re
 import requests
 
-from Bot import constants
-from Bot.excuses import first, second, third, fourth, smiles, funny_categories
+import constants
+from excuses import first, second, third, fourth, smiles, funny_categories
 
 end_of_message = "...так что сегодня я пасс "
 bing_img_link = 'https://www.bing.com/images/search?q='
