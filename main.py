@@ -37,6 +37,7 @@ def handle_text(message):
 
 @bot.message_handler(commands=['alinahelpme'])
 def send_good_otmazka(message):
+    log(message, 'alinahelp')
     perfect_answer = Otmazka_creator.get_good_otmazka()
     bot.send_chat_action(message.chat.id, 'typing')
     time.sleep(perfect_answer.get('time'))
