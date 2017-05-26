@@ -12,7 +12,7 @@ boyan_gifs = ['https://s01.yapfiles.ru/files/1249645/bayangifkifuturama154488.gi
               'https://s02.yapfiles.ru/files/1088376/BAYaN.gif',
               'http://cs3.pikabu.ru/images/big_size_comm_an/2014-02_3/13924678862314.gif']
 
-boyan_creators = ['Alexandrostriviany']
+boyan_creators = ['diegowithfourteeno']
 checker = [True, False]
 
 
