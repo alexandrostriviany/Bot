@@ -13,12 +13,12 @@ boyan_gifs = ['https://s01.yapfiles.ru/files/1249645/bayangifkifuturama154488.gi
               'http://cs3.pikabu.ru/images/big_size_comm_an/2014-02_3/13924678862314.gif']
 
 boyan_creators = ['diegowithfourteeno','Алина']
-checker = [True]
+checker = [True, False]
 
 
 def send_boyan(message, bot):
     isBoyan = random.choice(checker)
-    if (message.chat.first_name in boyan_creators or message.chat.username in boyan_creators) and 'http' in message.text and isBoyan:
+    if 'http' in message.text and isBoyan:
         if random.choice(checker):
             bot.send_photo(message.chat.id, random.choice(boyan_imgs))
         else:
