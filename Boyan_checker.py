@@ -13,7 +13,7 @@ boyan_gifs = ['https://s01.yapfiles.ru/files/1249645/bayangifkifuturama154488.gi
               'http://cs3.pikabu.ru/images/big_size_comm_an/2014-02_3/13924678862314.gif']
 
 boyan_creators = ['diegowithfourteeno','Алина']
-checker = [True, False]
+checker = [False, True, False]
 
 
 def send_boyan(message, bot):
