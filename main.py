@@ -1,17 +1,18 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
-import eventlet as eventlet
-from flask import Flask, request
-import Movie_finder
-from excuses import smiles
-import constants
-import telebot
 import time  # Представляет время в читаемый формат
-import Bar_finder
-import Otmazka_creator, Boyan_checker
 from datetime import datetime
-import eventlet
+
+import telebot
+from flask import Flask, request
+
+import Bar_finder
+import Fucking_rhyme
+import Movie_finder
+import Otmazka_creator
+import constants
+from excuses import smiles
 
 server = Flask(__name__)
 
@@ -62,13 +63,16 @@ def handle_start(message):
 
 @bot.message_handler(commands=['anyagotocinema'])
 def handle_text(message):
-    for i in range(10):
+    i = j = 0
+    while j < 10:
         if Movie_finder.get_imdb_rate(i) >= 7:
             movie = "<b>" + Movie_finder.get_movie_name(i) + "</b>" + ", " \
                     + "<i>" + Movie_finder.get_country_info(i) + "</i>" + ", " \
                     + "imdb " + "<b>" + str(Movie_finder.get_imdb_rate(i)) + "</b>"
             bot.send_photo(message.chat.id, Movie_finder.get_film_cover(i))
             bot.send_message(message.chat.id, movie, parse_mode='HTML')
+            j += 1
+        i += 1
     time.sleep(5)
     bot.send_message(message.chat.id, "хотя ....нет, отмена " + smiles.no_good_gesture)
 
@@ -79,8 +83,8 @@ def handle_start(message):
 
 
 @bot.message_handler(content_types=['text'])
-def send_boyan(message):
-    Boyan_checker.send_boyan(message, bot)
+def send_rhyme(message):
+    Fucking_rhyme.send_rhyme(message, bot)
 
 
 # Получение сообщений

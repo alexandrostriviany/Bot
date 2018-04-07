@@ -28,7 +28,7 @@ def get_film_cover(i):
     return 'http://kinoafisha.ua' + parsed_string['result'][i]['image']
 
 def get_imdb_rate(index):
-    rate = parsed_string['result'][index]['imdb']
+    rate = parsed_string['result'][index]['vote']
     if type(rate) is str:
         return float(rate.replace(",", "."))
     else: return 0
