@@ -14,7 +14,7 @@ rhymes_dictionary = {
 }
 
 
-def send_rhyme(message, bot):
+def send_rhyme(message):
     word = str.split(re.sub(r'[\W]', ' ', message.text).strip(), ' ')
     word.reverse()
     if len(word) > 0:
