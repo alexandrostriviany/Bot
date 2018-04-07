@@ -19,5 +19,5 @@ def send_rhyme(message):
     word.reverse()
     if len(word) > 0:
         word = word[0]
-        if word in rhymes_dictionary:
+        if word.lower() in rhymes_dictionary:
             return random.choice(rhymes_dictionary[word])

@@ -84,7 +84,7 @@ def handle_start(message):
 
 @bot.message_handler(content_types=['text'])
 def send_rhyme(message):
-    bot.send_document(message.chat.id, Fucking_rhyme.send_rhyme(message))
+    bot.send_message(message.chat.id, Fucking_rhyme.send_rhyme(message))
 
 
 # Получение сообщений
